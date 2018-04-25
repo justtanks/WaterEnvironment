@@ -1,5 +1,7 @@
 package com.example.administrator.waterenvironment;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,7 +17,7 @@ import android.widget.TextView;
 import com.example.administrator.waterenvironment.base.BaseActivity;
 import com.example.administrator.waterenvironment.fragment.MaintenanceFragment;
 import com.example.administrator.waterenvironment.fragment.ManageFragment;
-import com.example.administrator.waterenvironment.fragment.MapFragment;
+import com.example.administrator.waterenvironment.fragment.MapNewFragment;
 import com.example.administrator.waterenvironment.fragment.StatisticsFragment;
 import com.example.administrator.waterenvironment.fragment.VideoFragment;
 import com.example.administrator.waterenvironment.person.*;
@@ -73,12 +75,12 @@ public class MainActivity extends BaseActivity {
     ImageView img_video;
     @BindView(R.id.tv_video)
     TextView tv_video;
+
+    MapNewFragment mapFragment;
     MaintenanceFragment maintenanceFragment;
-    MapFragment mapFragment;
     ManageFragment manageFragment;
     StatisticsFragment statisticsFragment;
     VideoFragment videoFragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +99,7 @@ public class MainActivity extends BaseActivity {
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         leftOnClick();
-        setTextView(tv_map, tv_maintenance, tv_manage, tv_statistics, tv_video);
-        img_map.setImageResource(R.mipmap.map_home_choice);
-        img_maintenance.setImageResource(R.mipmap.home_station);
-        img_manage.setImageResource(R.mipmap.home_shebei);
-        img_statistics.setImageResource(R.mipmap.home_tongji);
-        img_video.setImageResource(R.mipmap.home_vedio);
+        resView(1);
 
     }
 
@@ -151,44 +148,19 @@ public class MainActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.map_home:
-                setTextView(tv_map, tv_maintenance, tv_manage, tv_statistics, tv_video);
-                img_map.setImageResource(R.mipmap.map_home_choice);
-                img_maintenance.setImageResource(R.mipmap.home_station);
-                img_manage.setImageResource(R.mipmap.home_shebei);
-                img_statistics.setImageResource(R.mipmap.home_tongji);
-                img_video.setImageResource(R.mipmap.home_vedio);
+                resView(1);
                 break;
             case R.id.home_statistics://img_statistics
-                setTextView(tv_statistics, tv_maintenance, tv_manage, tv_map, tv_video);
-                img_map.setImageResource(R.mipmap.home_map_unchoice);
-                img_maintenance.setImageResource(R.mipmap.home_station);
-                img_manage.setImageResource(R.mipmap.home_shebei);
-                img_statistics.setImageResource(R.mipmap.home_tongji_choice);
-                img_video.setImageResource(R.mipmap.home_vedio);
+                resView(4);
                 break;
             case R.id.home_manage:
-                setTextView(tv_manage, tv_statistics, tv_maintenance, tv_map, tv_video);
-                img_map.setImageResource(R.mipmap.home_map_unchoice);
-                img_statistics.setImageResource(R.mipmap.home_tongji);
-                img_manage.setImageResource(R.mipmap.home_manange_choice);
-                img_maintenance.setImageResource(R.mipmap.home_station);
-                img_video.setImageResource(R.mipmap.home_vedio);
+                resView(3);
                 break;
             case R.id.home_maintenance:
-                setTextView(tv_maintenance, tv_manage, tv_statistics, tv_map, tv_video);
-                img_map.setImageResource(R.mipmap.home_map_unchoice);
-                img_maintenance.setImageResource(R.mipmap.home_satation_choice);
-                img_manage.setImageResource(R.mipmap.home_shebei);
-                img_statistics.setImageResource(R.mipmap.home_tongji);
-                img_video.setImageResource(R.mipmap.home_vedio);
+                resView(2);
                 break;
             case R.id.home_video:
-                setTextView(tv_video, tv_maintenance, tv_manage, tv_statistics, tv_map);
-                img_manage.setImageResource(R.mipmap.home_map_unchoice);
-                img_maintenance.setImageResource(R.mipmap.home_tongji);
-                img_manage.setImageResource(R.mipmap.home_shebei);
-                img_maintenance.setImageResource(R.mipmap.home_station);
-                img_video.setImageResource(R.mipmap.home_video_choice);
+                resView(5);
                 break;
         }
     }
@@ -200,4 +172,70 @@ public class MainActivity extends BaseActivity {
         tv4.setTextColor(getResources().getColor(R.color.home_text));
         tv5.setTextColor(getResources().getColor(R.color.home_text));
     }
+
+    private void resView(int i) {
+        try {
+            FragmentManager manager = getFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            mapFragment = new MapNewFragment();
+            maintenanceFragment = new MaintenanceFragment();
+            manageFragment = new ManageFragment();
+            statisticsFragment = new StatisticsFragment();
+            videoFragment = new VideoFragment();
+
+            switch (i) {
+                case 1:
+                    transaction.replace(R.id.content_layout, mapFragment);
+                    setTextView(tv_map, tv_maintenance, tv_manage, tv_statistics, tv_video);
+                    img_map.setImageResource(R.mipmap.map_home_choice);
+                    img_maintenance.setImageResource(R.mipmap.home_station);
+                    img_manage.setImageResource(R.mipmap.home_shebei);
+                    img_statistics.setImageResource(R.mipmap.home_tongji);
+                    img_video.setImageResource(R.mipmap.home_vedio);
+                    break;
+                case 2:
+                    transaction.replace(R.id.content_layout, maintenanceFragment);
+                    setTextView(tv_maintenance, tv_manage, tv_statistics, tv_map, tv_video);
+                    img_map.setImageResource(R.mipmap.home_map_unchoice);
+                    img_maintenance.setImageResource(R.mipmap.home_satation_choice);
+                    img_manage.setImageResource(R.mipmap.home_shebei);
+                    img_statistics.setImageResource(R.mipmap.home_tongji);
+                    img_video.setImageResource(R.mipmap.home_vedio);
+                    break;
+                case 3:
+                    transaction.replace(R.id.content_layout, manageFragment);
+                    setTextView(tv_manage, tv_statistics, tv_maintenance, tv_map, tv_video);
+                    img_map.setImageResource(R.mipmap.home_map_unchoice);
+                    img_statistics.setImageResource(R.mipmap.home_tongji);
+                    img_manage.setImageResource(R.mipmap.home_manange_choice);
+                    img_maintenance.setImageResource(R.mipmap.home_station);
+                    img_video.setImageResource(R.mipmap.home_vedio);
+                    break;
+                case 4:
+                    transaction.replace(R.id.content_layout, statisticsFragment);
+                    setTextView(tv_statistics, tv_maintenance, tv_manage, tv_map, tv_video);
+                    img_map.setImageResource(R.mipmap.home_map_unchoice);
+                    img_maintenance.setImageResource(R.mipmap.home_station);
+                    img_manage.setImageResource(R.mipmap.home_shebei);
+                    img_statistics.setImageResource(R.mipmap.home_tongji_choice);
+                    img_video.setImageResource(R.mipmap.home_vedio);
+                    break;
+                case 5:
+                    transaction.replace(R.id.content_layout, videoFragment);
+                    setTextView(tv_video, tv_maintenance, tv_manage, tv_statistics, tv_map);
+                    img_manage.setImageResource(R.mipmap.home_map_unchoice);
+                    img_maintenance.setImageResource(R.mipmap.home_tongji);
+                    img_manage.setImageResource(R.mipmap.home_shebei);
+                    img_maintenance.setImageResource(R.mipmap.home_station);
+                    img_video.setImageResource(R.mipmap.home_video_choice);
+                    break;
+            }
+            transaction.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
