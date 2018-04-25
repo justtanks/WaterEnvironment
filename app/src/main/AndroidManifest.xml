@@ -13,11 +13,7 @@
             android:name=".activity.WelActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
@@ -40,7 +36,19 @@
             android:label="@string/title_activity_change_password" />
         <activity
             android:name=".person.SetActivity"
-            android:label="@string/title_activity_set"></activity>
+            android:label="@string/title_activity_set" />
+        <activity
+            style="@style/QDTopBar"
+            android:name=".activity.IndexChangeActivity"
+            android:screenOrientation="landscape">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

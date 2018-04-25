@@ -10,4 +10,5 @@
     <color name="line">#CCCCCC</color>
     <color name="dialog_text">#606060</color>
     <color name="home_text">#7581A0</color>
+    <color name="title_bg_color">#0183FE</color>
 </resources>
