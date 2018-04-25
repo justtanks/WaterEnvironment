@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.WelActivity">
+
+    <com.example.administrator.waterenvironment.view.WaveView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp" />
+
+    <com.example.administrator.waterenvironment.view.WaveView3
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="-120dp"
+        android:layout_marginTop="240dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
+        android:src="@mipmap/wel_icon" />
+
+    <com.qmuiteam.qmui.alpha.QMUIAlphaTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/wel_title"
+        android:textColor="@color/text_main"
+        android:textSize="@dimen/text_wel" />
+
+    <com.qmuiteam.qmui.alpha.QMUIAlphaTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/wel_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_wel2" />
+</FrameLayout>

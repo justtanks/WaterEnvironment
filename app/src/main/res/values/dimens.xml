@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="home_img">20dp</dimen>
+    <dimen name="text_frist">18sp</dimen>
+    <dimen name="text_second">16sp</dimen>
+    <dimen name="text_home">14sp</dimen>
+    <dimen name="text_wel">24dp</dimen>
+    <dimen name="text_wel2">12dp</dimen>
+</resources>
