@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        QMUIStatusBarHelper.translucent(this);
+        QMUIStatusBarHelper.translucent(this, getResources().getColor(R.color.text_main));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         init();

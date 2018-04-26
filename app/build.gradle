@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:design:27.1.1'
@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.5.1'
     implementation 'com.android.support:design:25.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    implementation files('src/main/jniLibs/BaiduLBS_Android.jar')
 }
 repositories {
     mavenCentral()

@@ -14,6 +14,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 作者：MTT
+ * 创建日期：2018/4/25
+ * 描述：统计页面
+ */
 public class StatisticsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
 
@@ -33,13 +38,6 @@ public class StatisticsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_statistics, container, false);
-        TextView tv_tongji = v.findViewById(R.id.tv_tongji);
-        tv_tongji.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "小哥哥点我跳转", Toast.LENGTH_SHORT).show();
-            }
-        });
         return v;
 
     }

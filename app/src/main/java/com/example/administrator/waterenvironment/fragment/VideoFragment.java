@@ -10,6 +10,11 @@ import android.view.ViewGroup;
 
 import com.example.administrator.waterenvironment.R;
 
+/**
+ * 作者：MTT
+ * 创建日期：2018/4/25
+ * 描述：视频
+ */
 public class VideoFragment extends Fragment {
 
     public VideoFragment() {
