@@ -33,7 +33,12 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.5.1'
     implementation 'com.android.support:design:25.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     implementation files('src/main/jniLibs/BaiduLBS_Android.jar')
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-5'//没有使用特殊Header，可以不加这行
+    implementation 'com.android.support:appcompat-v7:25.3.1'//版本 23以上（必须）
+    implementation 'com.android.support:recyclerview-v7:27.1.0'
 }
 repositories {
     mavenCentral()
